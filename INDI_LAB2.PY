@@ -1,5 +1,5 @@
 class Assignment: # This class represents an assignment with its details.
-    # The weighted grade is calculated as (grade / 100) * weight.
+
     def __init__(self, name, category, weight, grade):
         self.name = name
         self.category = category
@@ -87,6 +87,7 @@ def run(): # This function runs the assignment program.
     
     x.display() # This line calls the display method to show the results.
 
+# Main program execution
 print("\n======HELLO WELCOME TO THE GRADE CONVERTER======\n")
 print("THIS PROGRAM WILL HELP YOU CONVERT YOUR GRADES TO GPA\n")
 print("IF YOU CHOOSE TO USE THE NUMERIAL REPRESENTATION OF THE CATEGORIES  \nPLEASE NOTE THAT CATEGORY 1 IS FORMATIVE AND CATEGORY 2 IS SUMMATIVE\n")

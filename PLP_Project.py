@@ -1,3 +1,4 @@
+import mysql.connector
 class Convert:
     def __init__(self):
         pass

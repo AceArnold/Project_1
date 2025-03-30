@@ -92,3 +92,11 @@ print("\n======HELLO WELCOME TO THE GRADE CONVERTER======\n")
 print("THIS PROGRAM WILL HELP YOU CONVERT YOUR GRADES TO GPA\n")
 print("IF YOU CHOOSE TO USE THE NUMERIAL REPRESENTATION OF THE CATEGORIES  \nPLEASE NOTE THAT CATEGORY 1 IS FORMATIVE AND CATEGORY 2 IS SUMMATIVE\n")
 run()
+
+
+# Programming Concepts Used in This Implementation:
+# Data Structures: Lists (used to store assignments)
+# Object-Oriented Programming: Classes (Assignment, AssigProgram), Objects, Encapsulation
+# Loops: for loop (iterating through assignments), while loop (input validation)
+# Functions/Methods: Defined methods for adding assignments, calculating GPA, and displaying results
+# Conditional Statements: if-elif conditions for category checking and weight validation

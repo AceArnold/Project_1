@@ -3,6 +3,13 @@ class Convert:
     def __init__(self):
         pass
     
+    def personnal_info(self):
+        print("=================================Welcome to the grading system converter!==============================\n")
+        name = input("Enter your name: ")
+        age = int(input("Enter your age: "))
+        email = input("Enter your email: ")
+        print(f"HELLO: {name}, HOPE YOU ARE DOING OKAY, \nLet us convert your grades. \n")
+
     def gpa(self):
         gpa_score = float(input("Enter your GPA: "))
         print("Convert to:")
@@ -53,6 +60,7 @@ class Convert:
 
 # Running the conversion
 grading_system = Convert()
+grading_system.personnal_info()
 print("Choose the grading system you want to convert from:")
 print("1. GPA")
 print("2. National")

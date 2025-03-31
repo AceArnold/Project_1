@@ -8,7 +8,7 @@ class Convert:
         name = input("Enter your name: ")
         age = int(input("Enter your age: "))
         email = input("Enter your email: ")
-        print(f"HELLO: {name}, HOPE YOU ARE DOING OKAY, \n \nLet us convert your grades. \n")
+        print(f"HELLO: {name}, HOPE YOU ARE DOING OKAY, \nLet us convert your grades. \n")
 
     def gpa(self):
         gpa_score = float(input("Enter your GPA: "))
@@ -61,7 +61,7 @@ class Convert:
 # Running the conversion
 grading_system = Convert()
 grading_system.personnal_info()
-print("\nChoose the grading system you want to convert from:")
+print("Choose the grading system you want to convert from:")
 print("1. GPA")
 print("2. National")
 print("3. Percentage")

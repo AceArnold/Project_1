@@ -1,62 +1,94 @@
-import mysql.connector
 class Convert:
     def __init__(self):
-        pass
+        self.name = ""
+        self.age = 0
+        self.email = ""
+        self.old_grade = 0
+        self.new_grade = 0
+        self.from_system = ""
+        self.to_system = ""
     
     def personnal_info(self):
         print("=================================Welcome to the grading system converter!==============================\n")
-        name = input("Enter your name: ")
-        age = int(input("Enter your age: "))
-        email = input("Enter your email: ")
-        print(f"HELLO: {name}, HOPE YOU ARE DOING OKAY, \n \nLet us convert your grades. \n")
+        self.name = input("Enter your name: ")
+        self.age = int(input("Enter your age: "))
+        self.email = input("Enter your email: ")
+        print(f"HELLO: {self.name}, HOPE YOU ARE DOING OKAY, \n \nLet us convert your grades. \n")
 
     def gpa(self):
+        self.from_system = "GPA"
         gpa_score = float(input("Enter your GPA: "))
+        self.old_grade = gpa_score
         print("Convert to:")
         print("1. Percentage")
         print("2. National")
         choice = int(input("Enter choice (1 or 2): "))
         
         if choice == 1:
+            self.to_system = "Percentage"
             percentage = gpa_score * 25  # Example conversion
+            self.new_grade = percentage
             print(f"Your GPA {gpa_score} is approximately {percentage}%.")
         elif choice == 2:
+            self.new_grade = national
             national = (gpa_score/4)*60  # Example conversion
             print(f"Your GPA {gpa_score} is approximately {national} in the national system.")
         else:
             print("Invalid choice.")
     
     def national(self):
+        self.from_system = "National"
         national_score = float(input("Enter your National grade: "))
+        self.old_grade = national_score
         print("Convert to:")
         print("1. GPA")
         print("2. Percentage")
         choice = int(input("Enter choice (1 or 2): "))
         
         if choice == 1:
+            self.to_system = "GPA"
             gpa = (national_score / 60)*4  # Example conversion
+            self.new_grade = gpa
             print(f"Your National grade {national_score} is approximately {gpa} GPA.")
         elif choice == 2:
+            self.to_system = "Percentage"  
             percentage = (national_score / 60) * 100  # Example conversion
+            self.new_grade = percentage
             print(f"Your National grade {national_score} is approximately {percentage}%.")
         else:
             print("Invalid choice.")
     
     def percentage(self):
+        self.from_system = "Percentage"
         percentage_score = float(input("Enter your Percentage grade: "))
+        self.old_grade = percentage_score
         print("Convert to:")
         print("1. GPA")
         print("2. National")
         choice = int(input("Enter choice (1 or 2): "))
         
         if choice == 1:
+            self.to_system = "GPA"
             gpa = (percentage_score / 100)*4  # Example conversion
+            self.new_grade = gpa
             print(f"Your Percentage grade {percentage_score}% is approximately {gpa} GPA.")
         elif choice == 2:
+            self.to_system = "National"
             national = (percentage_score / 100) * 60  # Example conversion
+            self.new_grade = national
             print(f"Your Percentage grade {percentage_score}% is approximately {national} in the national system.")
         else:
             print("Invalid choice.")
+    
+    def output(self):
+        print(f" \n HELLO, {self.name} THANK YOU FOR USING OUR SERVICE, \n")
+        print("=================================Your Information================================= \n")
+        print(f"FULL NAME: {self.name} ")
+        print(f"YOUR AGE: {self.age} ")
+        print(f"YOUR EMAIL: {self.email} \n ")
+        print(f"YOUR OLD GRADE IS: {self.old_grade} AND YOUR GRADING SYSTEM IS: {self.from_system} ")
+        print(f"YOUR NEW GRADE SYSTEM IS: {self.new_grade} AND YOUR GRADING SYSTEM IS: {self.to_system} \n ")
+        print("=========================Thank you for using our service=========================== ")
 
 # Running the conversion
 grading_system = Convert()
@@ -76,3 +108,5 @@ elif system_choice == 3:
     grading_system.percentage()
 else:
     print("Invalid choice.")
+
+grading_system.output()

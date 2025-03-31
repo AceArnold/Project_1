@@ -6,32 +6,16 @@ class Convert:
     def __init__(self):
         try:
             self.connection = mysql.connector.connect(
-                host="localhost",
-                port=3306,           # Default MySQL port
-                user="root",         # Your MySQL Workbench username
-                password="Mutara@123",     # Your MySQL Workbench password
-                database="plp",
-                auth_plugin='mysql_native_password'  # Authentication plugin for MySQL 8+
+                host="127.0.0.1",  # Using the IP address shown in your phpMyAdmin
+                user="root",       # Default phpMyAdmin username
+                password="",       # Your MySQL password (blank by default in XAMPP)
+                database="grade_converter"
             )
-            
-            if self.connection.is_connected():
-                db_info = self.connection.get_server_info()
-                print(f"Connected to MySQL Server version {db_info}")
-                self.cursor = self.connection.cursor(buffered=True)
-                self.create_database()
-                self.create_tables()
-        except Error as err:
-            print(f"Error connecting to MySQL Workbench: {err}")
-            exit(1)
-    
-    def create_database(self):
-        try:
-            self.cursor.execute("CREATE DATABASE IF NOT EXISTS grade_converter")
-            self.cursor.execute("USE grade_converter")
-            print("Database 'grade_converter' is ready!")
-        except Error as err:
-            print(f"Error creating database: {err}")
-            exit(1)
+            self.cursor = self.connection.cursor()
+            self.create_tables()
+            print("Successfully connected to MySQL!")
+        except mysql.connector.Error as err:
+            print(f"Error connecting to MySQL: {err}")
     
     def create_tables(self):
         try:
@@ -249,28 +233,21 @@ def main():
                 print("Invalid choice. Please try again.")
                 continue
 
-            print("\nChoose the grading system you want to convert from:")
-            print("1. GPA")
-            print("2. National")
-            print("3. Percentage")
-            print("4. Back to main menu")
+print("\nChoose the grading system you want to convert from:")
+print("1. GPA")
+print("2. National")
+print("3. Percentage")
 
-            try:
-                system_choice = int(input("Enter choice (1-4): "))
-            except ValueError:
-                print("Please enter a valid number.")
-                continue
+system_choice = int(input("Enter choice (1, 2, or 3): "))
 
-            if system_choice == 4:
-                continue
-            elif system_choice == 1:
-                grading_system.gpa(user_id)
-            elif system_choice == 2:
-                grading_system.national(user_id)
-            elif system_choice == 3:
-                grading_system.percentage(user_id)
-            else:
-                print("Invalid choice.")
+if system_choice == 1:
+    grading_system.gpa(user_id)
+elif system_choice == 2:
+    grading_system.national(user_id)
+elif system_choice == 3:
+    grading_system.percentage(user_id)
+else:
+    print("Invalid choice.")
 
     except KeyboardInterrupt:
         print("\nProgram terminated by user.")
